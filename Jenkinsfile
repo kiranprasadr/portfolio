@@ -8,9 +8,11 @@ pipeline {
             }
         }
 
-        stage('Hello') {
+        stage('docker build') {
             steps {
                 echo 'Hello from Jenkins'
+                sh 'docker build -t portfolio:latest .'
+
             }
         }
 
