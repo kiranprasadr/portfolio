@@ -17,7 +17,13 @@ patchesStrategicMerge:
 images:
   - name: demo-app
     newName: kiranprasad26/portfolio
-    newTag: 23112025
+    newTag: "23112025"
+
+secretGenerator:
+  - name: demo-app-assets
+    files:
+      - demo-app-configs/photo.jpg
+      - demo-app-configs/Resume.pdf
 
 configMapGenerator:
   - name: demo-app
@@ -27,5 +33,3 @@ configMapGenerator:
   - name: demo-app-config
     files:
       - demo-app-configs/index.html
-      - demo-app-configs/photo.jpg
-      - demo-app-configs/Resume.pdf
