@@ -98,7 +98,7 @@ spec:
               subPath: index.html
 
             - name: demo-logs-nfs
-              mountPath: /var/log
+              mountPath: /app/log
 
             - name: tz-config
               mountPath: /etc/localtime
