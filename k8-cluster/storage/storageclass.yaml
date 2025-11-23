@@ -3,4 +3,3 @@ kind: StorageClass
 metadata:
   name: demo-sc
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer

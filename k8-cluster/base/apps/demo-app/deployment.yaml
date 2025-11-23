@@ -97,8 +97,13 @@ spec:
               mountPath: /usr/share/nginx/html
               subPath: index.html
 
+<<<<<<< HEAD
             # - name: demo-logs-nfs
             #   mountPath: /var/log
+=======
+            - name: demo-logs-nfs
+              mountPath: /app/log
+>>>>>>> efa9a481a04d6d2ddf8eceb47b47e0e0f31befcd
 
             - name: tz-config
               mountPath: /etc/localtime
