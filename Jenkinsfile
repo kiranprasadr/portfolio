@@ -2,18 +2,21 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Build Docker Image') {
+        stage('Start') {
             steps {
-                echo "Building Docker image..."
-                sh "test"
+                echo 'Pipeline started'
             }
         }
 
-        stage('Test') {
+        stage('Hello') {
             steps {
-                echo 'Running simple tests...'
-                sh "echo Tests passed"
+                echo 'Hello from Jenkins'
+            }
+        }
+
+        stage('End') {
+            steps {
+                echo 'Pipeline finished'
             }
         }
     }
