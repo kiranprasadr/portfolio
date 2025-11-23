@@ -7,7 +7,7 @@ commonLabels:
   productgroup: demo
 
 resources:
-  - ../../../../../../base/apps/demo-app
+  - ../../base/apps/demo-app
   - demo-ingress.yaml
 
 patchesStrategicMerge:
@@ -26,6 +26,6 @@ configMapGenerator:
 
   - name: demo-app-config
     files:
-      - demo-app-configs/index.xml
+      - demo-app-configs/index.html
       - demo-app-configs/photo.jpg
       - demo-app-configs/Resume.pdf
