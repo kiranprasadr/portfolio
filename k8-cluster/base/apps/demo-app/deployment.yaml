@@ -94,8 +94,8 @@ spec:
         configMap:
          name: demo-app-config
       - name: demo-logs-nfs
-        emptyDir: {}
-
+        persistentVolumeClaim:
+          claimName: demo-pv
       - name: tz-config
         hostPath:
           path: /usr/share/zoneinfo/Asia/Calcutta
