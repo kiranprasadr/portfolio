@@ -14,9 +14,8 @@ spec:
     spec:
       volumes:
       - name: demo-logs-nfs
-        nfs:
-          server: 10.0.0.10
-          path: /opt/nfs-temp/demo/demo
+        persistentVolumeClaim:
+          claimName: demo-pv
       - name: tz-config
         hostPath:
           path: /usr/share/zoneinfo/Asia/Calcutta
