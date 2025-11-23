@@ -97,8 +97,8 @@ spec:
               mountPath: /usr/share/nginx/html
               subPath: index.html
 
-            - name: demo-logs-nfs
-              mountPath: /var/log
+            # - name: demo-logs-nfs
+            #   mountPath: /var/log
 
             - name: tz-config
               mountPath: /etc/localtime
@@ -108,9 +108,9 @@ spec:
           configMap:
             name: demo-app-config
 
-        - name: demo-logs-nfs
-          persistentVolumeClaim:
-            claimName: demo-pv
+        # - name: demo-logs-nfs
+        #   persistentVolumeClaim:
+        #     claimName: demo-pv
 
         - name: tz-config
           hostPath:
