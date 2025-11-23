@@ -1,0 +1,101 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app
+  labels:
+    app: demo-app
+    tier: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    metadata:
+      labels:
+        app: demo-app
+        tier: backend
+    spec:
+      dnsConfig:
+        options:
+        - name: single-request-reopen
+      containers:
+        - name: demo-app
+          image: demo-app
+          imagePullPolicy: Always
+          env:
+            - name: MY_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: MY_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  name: demo-app
+                  key: TZ 
+          ports:
+          - name: web
+            containerPort: 8080   # application port
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "500Mi"
+            requests:
+              cpu: "400m"
+              memory: "200Mi"
+          #startupProbe:
+            #failureThreshold: 3
+            #httpGet:
+             # path: /actuator/health/liveness
+              #port: 8080
+              #scheme: HTTP
+            #initialDelaySeconds: 30
+            #periodSeconds: 10
+            #successThreshold: 1
+            #timeoutSeconds: 5
+          #readinessProbe:
+            #failureThreshold: 3
+           # httpGet:
+             # path: /actuator/health/readiness
+              #port: 8080
+              #scheme: HTTP
+            #initialDelaySeconds: 30
+           # periodSeconds: 10
+            #successThreshold: 1
+            #timeoutSeconds: 5
+          #livenessProbe:
+            #failureThreshold: 3
+            #httpGet:
+              #path: /actuator/health/liveness
+             # port: 8080
+              #scheme: HTTP
+            #initialDelaySeconds: 60
+            #periodSeconds: 10
+           # successThreshold: 1
+           # timeoutSeconds: 5
+          volumeMounts:
+          - name: demo-app-config
+            mountPath: /usr/share/nginx/html
+            subPath: index.html       
+          - name: demo-logs-nfs
+            mountPath: /var/log
+
+
+      volumes:
+      - name: demo-app-config
+        configMap:
+         name: demo-app-config
+      - name: demo-logs-nfs
+        emptyDir: {}
+
+      - name: tz-config
+        hostPath:
+          path: /usr/share/zoneinfo/Asia/Calcutta

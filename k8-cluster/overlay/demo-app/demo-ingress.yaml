@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-app
+  labels:
+    app: demo-app
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+    # konghq.com/protocols: "https"   # Commented for demo (enables only HTTP)
+spec:
+  # tls:
+  # - hosts:
+  #   - sample.example.com
+  #   secretName: demo-app-tls-secret   # Commented (TLS not needed for demo)
+  rules:
+  - host: kiranprasad.portofolio.live
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: demo-app
+            port:
+              number: 8084

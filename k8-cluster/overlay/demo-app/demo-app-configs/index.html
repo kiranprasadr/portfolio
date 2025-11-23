@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kiranprasad</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#0ea5a4; --muted:#9aa8b2;
+      --radius:12px; --gap:18px; --maxw:980px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%; margin:0; background:linear-gradient(180deg,#071025 0%, #071a2b 100%); color:#e6eef3}
+    .wrap{max-width:var(--maxw); margin:36px auto; padding:28px; display:grid; gap:var(--gap);}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; gap:14px; align-items:center}
+
+    /* Avatar box */
+    .avatar{
+      width:64px;
+      height:64px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#06b6d4);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden; /* prevents image overflow */
+    }
+
+    /* Avatar image fix */
+    .avatar-img {
+      width:100%;
+      height:100%;
+      object-fit:cover; /* keeps crop clean */
+      border-radius:12px;
+      display:block;
+    }
+
+    h1{margin:0; font-size:20px}
+    p.lead{margin:4px 0 0; color:var(--muted); font-size:14px}
+    nav{display:flex; gap:10px}
+    .btn{background:transparent; border:1px solid rgba(255,255,255,0.08); padding:8px 12px; border-radius:10px; color:var(--muted); text-decoration:none; font-weight:600}
+    .btn.cta{background:var(--accent); color:#022; border:0}
+    .grid{display:grid; grid-template-columns:1fr 340px; gap:var(--gap); align-items:start}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px; border-radius:var(--radius); box-shadow:0 6px 18px rgba(2,6,23,0.6);}
+    .section-title{font-size:13px; color:var(--muted); margin:0 0 10px; letter-spacing:0.6px}
+    .skills{display:flex; gap:8px; flex-wrap:wrap}
+    .pill{padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.03); color:var(--muted); font-size:13px}
+    .projects{display:flex; flex-direction:column; gap:12px}
+    .project{padding:12px; border-radius:10px; background:rgba(255,255,255,0.015); border:1px solid rgba(255,255,255,0.02)}
+    footer{color:var(--muted); font-size:13px; text-align:center; margin-top:8px}
+
+    @media (max-width:860px){
+      .grid{grid-template-columns:1fr;}
+      .avatar{width:56px;height:56px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="avatar">
+          <img src="photo.jpg" class="avatar-img">
+        </div>
+        <div>
+          <h1>Kiranprasad R</h1>
+          <p class="lead">Implementation Engineer • DevOps • Telecom BSS</p>
+        </div>
+      </div>
+
+      <nav>
+        <a class="btn" href="#about">About</a>
+        <a class="btn" href="#skills">Skills</a>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn cta" href="Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+      </nav>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section id="about" class="card">
+          <p class="section-title">About</p>
+          <p>
+            Implementation Engineer with hands-on experience in telecom BSS deployments, containerized microservices,
+            CI/CD pipelines and automation. I focus on reliable rollouts, proactive monitoring and reducing manual steps
+            through scripting and tooling.
+          </p>
+        </section>
+
+        <section id="projects" class="card" style="margin-top:14px">
+          <p class="section-title">Select Projects</p>
+          <div class="projects">
+            <div class="project">
+              <strong>Microservices-driven BSS deployment</strong>
+              <div style="color:var(--muted); font-size:13px; margin-top:6px">
+                Deployed modular telecom services using Docker and Kubernetes with YAML-based manifests, ArgoCD for GitOps,
+                and CI jobs to validate artifacts before rollout.
+              </div>
+            </div>
+
+            <div class="project">
+              <strong>CI/CD automation & validation</strong>
+              <div style="color:var(--muted); font-size:13px; margin-top:6px">
+                Built Jenkins/GitLab pipelines with automated pre-deploy checks, SQL validations and post-deploy health checks,
+                reducing deployment time and manual failures.
+              </div>
+            </div>
+
+            <div class="project">
+              <strong>Monitoring & Observability</strong>
+              <div style="color:var(--muted); font-size:13px; margin-top:6px">
+                Centralized logs and metrics with Fluent Bit, EFK and Prometheus/Grafana dashboards for proactive alerts.
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <div class="card">
+          <p class="section-title">Core Skills</p>
+          <div class="skills" id="skills">
+            <span class="pill">Kubernetes</span>
+            <span class="pill">Docker</span>
+            <span class="pill">Jenkins</span>
+            <span class="pill">GitLab CI</span>
+            <span class="pill">Prometheus</span>
+            <span class="pill">Grafana</span>
+            <span class="pill">EFK</span>
+            <span class="pill">Python / Bash</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Terraform</span>
+          </div>
+
+          <hr style="margin:12px 0; border:0; border-top:1px solid rgba(255,255,255,0.03)">
+
+          <p class="section-title">Contact</p>
+          <div style="font-size:14px">
+            <div style="margin-bottom:6px">kiranprasad897@gmail.com</div>
+            <div style="margin-bottom:6px">Bengaluru, India</div>
+            <div><a href="https://linkedin.com/in/kiranprasadr26" target="_blank" rel="noopener" class="btn" style="text-decoration:none">LinkedIn</a></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      Thanks for Time.
+    </footer>
+  </div>
+</body>
+</html>

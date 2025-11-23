@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app 
+  labels:
+    app: demo-app
+    app-group: demo
+    tier: backend
+spec:
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    spec:
+      containers:
+        - name: demo-app
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1"
+            requests:
+              cpu: "1"
+              memory: "1"

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app 
+  labels:
+    app: demo-app
+    app-group: demo
+    tier: backend
+spec:
+  selector:
+    matchLabels:
+      app: demo-app
+  template:
+    spec:
+      volumes:
+      - name: demo-logs-nfs
+        nfs:
+          server: 10.0.0.10
+          path: /opt/nfs-temp/demo/demo
+      - name: tz-config
+        hostPath:
+          path: /usr/share/zoneinfo/Asia/Calcutta
