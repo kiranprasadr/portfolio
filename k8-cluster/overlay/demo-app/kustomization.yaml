@@ -7,7 +7,7 @@ commonLabels:
   productgroup: demo
 
 resources:
-  - ../../../../base/apps/demo-app
+  - ../../../../../../base/apps/demo-app
   - demo-ingress.yaml
 
 patchesStrategicMerge:
