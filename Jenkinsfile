@@ -8,12 +8,13 @@ pipeline {
             }
         }
 
-        stage('docker build') {
-            steps {
-                echo 'Hello from Jenkins'
-                sh 'docker build -t portfolio:latest .'
-
-            }
+    stage('Docker Build') {
+        steps {
+            script {
+                def date = sh(script: "date +%Y%m%d%H%M%S", returnStdout: true).trim()
+                sh "docker build -t portfolio:${date} ."
+                   }
+                }
         }
 
         stage('End') {
