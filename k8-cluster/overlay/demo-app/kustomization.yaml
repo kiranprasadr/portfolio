@@ -20,3 +20,6 @@ configMapGenerator:
       - demo-app-configs/index.html
       - demo-app-configs/photo.jpg
       - demo-app-configs/Resume.pdf
+  - name: demo-app
+    literals:
+      - TZ=Asia/Calcutta
