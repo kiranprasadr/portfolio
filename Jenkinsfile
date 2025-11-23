@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                echo "Cloning code..."
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 echo "Building Docker image..."
@@ -18,7 +12,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo "Running simple tests..."
+                echo 'Running simple tests...'
                 sh "echo Tests passed"
             }
         }
