@@ -13,9 +13,9 @@ spec:
   template:
     spec:
       volumes:
-      - name: demo-logs-nfs
-        persistentVolumeClaim:
-          claimName: demo-pv
-      - name: tz-config
-        hostPath:
-          path: /usr/share/zoneinfo/Asia/Calcutta
+      # - name: demo-logs-nfs
+      #   persistentVolumeClaim:
+      #     claimName: demo-pv
+      # - name: tz-config
+      #   hostPath:
+      #     path: /usr/share/zoneinfo/Asia/Calcutta

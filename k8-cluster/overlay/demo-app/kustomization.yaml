@@ -11,7 +11,7 @@ resources:
   - demo-ingress.yaml
 
 patchesStrategicMerge:
-  - demo-app-volume-patch.yaml
+#  - demo-app-volume-patch.yaml
   - demo-resource-limits-patch.yaml
 
 images:
